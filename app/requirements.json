@@ -1,0 +1,644 @@
+[
+  {
+    "id": "S1",
+    "requirement": "Offene API  mit Dokumentation für eigene Anbindungen; alternativ lesender Datenbankzugriff",
+    "priority": "M",
+    "answer": "Ja. TCMswiss erhält eine offene, dokumentierte Programmierschnittstelle (REST-API) mit Zugriffsschlüsseln, die die Zentrale selbst verwaltet. Damit lassen sich eigene Anbindungen und Auswertungen bauen. Ein direkter Datenbankzugriff wird aus Sicherheitsgründen nicht angeboten. Richtung: beidseitig (lesend und schreibend). Aktualisierung: Echtzeit. Einmalkosten: gemäss Kostentabelle Kap. 6. Laufende Kosten: keine."
+  },
+  {
+    "id": "S2",
+    "requirement": "Abacus : Debitoren, Erlöse und Zahlungseingänge je Rechtsträger und Kostenstelle; Abgleich statt Doppelerfassung",
+    "priority": "M",
+    "answer": "Ja. Rechnungen, Zahlungen, Spesen und Kassenabschlüsse werden automatisch in die Abacus-Buchhaltung von Park Consulting übergeben, ohne Doppelerfassung; Abacus ist nie Erfassungsquelle. Voraussetzung: Kontakt zu Park Consulting und Freischaltung der Abacus-Schnittstelle durch die Buchhaltung. Richtung: schreibend (Buchungen an Abacus), lesend für Abgleich. Aktualisierung: täglich, konfigurierbar. Einmalkosten: gemäss Kostentabelle Kap. 6. Laufende Kosten: keine unsererseits; allfällige Schnittstellenlizenz auf Abacus-Seite."
+  },
+  {
+    "id": "S3",
+    "requirement": "Bank : QR-IBAN je Rechtsträger, camt.053 und camt.054 automatisch einlesen und zuordnen",
+    "priority": "M",
+    "answer": "Ja. Zahlungseingänge werden täglich automatisch von der Bank abgeholt und den Rechnungen zugeordnet, getrennt je Rechtsträger. Teilzahlungen und unklare Zahlungen erscheinen in einer Prüfliste zur Zuordnung. Als Ersatz kann der Bankauszug jederzeit auch manuell hochgeladen werden. Voraussetzung: EBICS-Vertrag je Rechtsträger bei der jeweiligen Bank (je nach Bank kostenlos oder mit einer einmaligen bzw. monatlichen Gebühr gemäss deren Preisliste; bei mehreren Kantonalbanken kostenlos). Richtung: lesend (Bank → System). Aktualisierung: täglich automatisch via EBICS, manueller Upload jederzeit. Einmalkosten: gemäss Kostentabelle Kap. 6. Laufende Kosten: keine unsererseits; allfällige EBICS-Gebühren der Bank je Rechtsträger gemäss deren Preisliste."
+  },
+  {
+    "id": "S4",
+    "requirement": "Beleg nach generalInvoice 5.0 : Rechnung und Rückforderungsbeleg im gültigen Print-Template. Wir rechnen im Tiers garant ab — der Beleg geht an die Patientin, nicht an die Kasse",
+    "priority": "M",
+    "answer": "Ja. Rechnungen werden im neuen Standard generalInvoice 5.0 erstellt, mit den offiziellen Referenzmodulen der Branche (Sumex1), die bereits produktiv sind und die wir in unsere Lösung einbauen. Bei Tiers garant gehen Rechnung und Rückforderungsbeleg an die Patientin oder den Patienten (Papier, E-Mail oder eBill, siehe F2); sie zahlt und reicht den Beleg beim Versicherer ein. Wo ein Versicherer die elektronische Übermittlung wünscht oder eine Kopie verlangt, übermittelt das System die Rechnung zusätzlich über den Intermediär. Rechnung, Rückforderungsbeleg, Mahnung und Storno kommen aus demselben Modul. Richtung: schreibend, Rechnung und Rückforderungsbeleg an die Patientin oder den Patienten, auf Wunsch zusätzlich elektronisch an den Versicherer über den Intermediär. Aktualisierung: je Rechnungslauf. Einmalkosten: gemäss Kostentabelle Kap. 6. Laufende Kosten: bei elektronischer Übermittlung Gebühr des Intermediärs je Rechnung gemäss Kap. 6."
+  },
+  {
+    "id": "S5",
+    "requirement": "E-Mail-Versand  für Terminerinnerungen und Rechnungen, aus dem System heraus protokolliert",
+    "priority": "M",
+    "answer": "Ja. Rechnungen, Erinnerungen und Berichte werden per E-Mail versendet, mit dem Absender des jeweiligen Rechtsträgers, über den Schweizer Versanddienst mailomat (Serverstandort Schweiz, zertifizierte Versandserver für zuverlässige Zustellung). Nicht zustellbare Mails werden in Echtzeit erkannt und im Dossier angezeigt. Voraussetzung: TCMswiss stellt die Versanddomain zur Verfügung und trägt die nötigen Freigaben im Domain-Eintrag ein (wir liefern die Anleitung). Richtung: schreibend, Rückkanal für Zustellfehler. Aktualisierung: Echtzeit. Einmalkosten: gemäss Kostentabelle Kap. 6. Laufende Kosten: Versandkonto pauschal pro Jahr gemäss Kap. 6, keine Kosten pro E-Mail."
+  },
+  {
+    "id": "S6",
+    "requirement": "Online-Terminbuchung  durch Patientinnen und Patienten, beidseitig synchron (zum Beispiel OneDoc)",
+    "priority": "K – optional, gemäss Abstimmung",
+    "answer": "Zusatzmodul, optional gemäss Abstimmung mit TCMswiss. Die Einführung erfolgt bewusst schrittweise: Zunächst sollen sich die Mitarbeitenden mit der neuen Praxissoftware vertraut machen. In einer zweiten Ausbaustufe kann die Online-Terminbuchung direkt in die Website eingebunden werden. Die Online-Terminbuchung ist nicht Bestandteil des Grundumfangs und keine Voraussetzung für den Produktivstart. Bei Beauftragung werden Buchungen und Verfügbarkeiten beidseitig mit der Praxisagenda synchronisiert. Standort, Therapieperson und Leistung sind wählbar. Wir setzen dafür unser bestehendes Buchungsmodul ein. Bestellbar nach dem Produktivstart, Lieferung innert zwei Monaten nach Bestellung. Kostendach CHF 3'243 (Kapitel 6). Richtung: beidseitig (Buchung → Agenda, Verfügbarkeit → Buchung). Aktualisierung: Echtzeit. Laufende Kosten: keine unsererseits."
+  },
+  {
+    "id": "S7",
+    "requirement": "Inkasso und Betreibung  (Creditreform), mit Rückmeldung ins Dossier",
+    "priority": "M",
+    "answer": "Ja. Nach der letzten Mahnstufe stellt das System die Inkasso-Kandidaten automatisch zusammen; die Zentrale gibt sie mit einem Klick frei und kann einzelne Fälle zurückhalten. Die Übergabe an Creditreform erfolgt direkt aus dem System, sofern Creditreform für TCMswiss eine elektronische Anbindung (Schnittstelle oder Datenaustausch per Batch) bereitstellt; andernfalls als Exportdatei im Creditreform-Auftragsformat zum Hochladen im Creditreform-Portal, ohne Abtippen. Der Stand (übergeben, teilbezahlt, abgeschlossen, Verlustschein) wird im Dossier geführt, Mahnungen stoppen automatisch, bei Direktzahlung während des Inkassos warnt das System. Voraussetzung: Creditreform-Vertrag von TCMswiss und Klärung mit der Creditreform-Geschäftsstelle, welche Anbindung verfügbar ist. Richtung: schreibend (Übergabe), Rückmeldung je nach Anbindung automatisch oder per Import. Aktualisierung: je Übergabe. Einmalkosten: gemäss Kostentabelle Kap. 6. Laufende Kosten: keine unsererseits; Creditreform-Konditionen gemäss Vertrag der Kundin."
+  },
+  {
+    "id": "S8",
+    "requirement": "Zeiterfassung : Ein- und Ausloggen der Mitarbeitenden, integriert oder als Anbindung an ProTimer",
+    "priority": "M -> eigene oder protimer",
+    "answer": "Ja. Mitarbeitende stempeln direkt in der Praxissoftware ein und aus, am Tablet oder Handy, mit sicherer persönlicher Anmeldung (Fingerabdruck oder Gesicht am eigenen Gerät) und auf Wunsch mit Standortprüfung. ProTimer wird damit nicht mehr benötigt. Falls ProTimer bleiben soll, ist eine Anbindung als Zusatzmodul möglich. Richtung: intern (keine Fremdschnittstelle). Aktualisierung: Echtzeit. Einmalkosten: gemäss Kostentabelle Kap. 6. Laufende Kosten: keine; ProTimer-Lizenz entfällt."
+  },
+  {
+    "id": "S9",
+    "requirement": "HIN : gesicherter Versand von Rechnungen und Berichten aus dem System",
+    "priority": "S",
+    "answer": "Ja. Berichte und Rechnungen an Ärztinnen, Ärzte und Versicherer gehen verschlüsselt über HIN, über das bestehende HIN-Gateway von TCMswiss. Voraussetzung: HIN-Mitgliedschaft mit Freigabe für den Versand aus einer Software (Systemversand) und die Zugangsdaten. Richtung: schreibend (Versand über HIN). Aktualisierung: Echtzeit. Einmalkosten: gemäss Kostentabelle Kap. 6. Laufende Kosten: keine unsererseits; HIN-Mitgliedschaft und Systemversand-Lizenz der Kundin."
+  },
+  {
+    "id": "S10",
+    "requirement": "eBill : Rechnungsversand an Patientinnen und Patienten; Versandweg je Rechnung wählbar",
+    "priority": "S",
+    "answer": "Ja. Patientinnen und Patienten, die eBill nutzen, erhalten die Rechnung direkt ins E-Banking. Das läuft über einen eBill-Netzwerkpartner (z.B. PostFinance). Voraussetzung: TCMswiss wählt den Partner, registriert die vier Rechtsträger und stellt uns den Zugang zur Verfügung. Richtung: schreibend (Rechnung → eBill), Status lesend. Aktualisierung: je Rechnungslauf. Einmalkosten: gemäss Kostentabelle Kap. 6. Laufende Kosten: Transaktionsgebühren des eBill-Netzwerkpartners."
+  },
+  {
+    "id": "S11",
+    "requirement": "Website  (WordPress): Aufnahmeformular schreibt direkt in die Stammdaten, ohne Abtippen",
+    "priority": "S",
+    "answer": "Ja. Wer sich über die Website anmeldet, erscheint als neue Aufnahme in einer Prüfliste. Das System prüft jede Anmeldung automatisch gegen die bestehenden Patientinnen und Patienten (B3) und zeigt an: «neu» oder «vermutlich bereits vorhanden» mit dem passenden Dossier. Die Zentrale bestätigt mit einem Klick, ob es ein neues Dossier gibt oder die Angaben dem bestehenden zugeordnet werden. Danach werden die Daten auf der Website gelöscht. Voraussetzung: Testzugang zur WordPress-Seite. Richtung: lesend (Website → Prüfliste), Löschung schreibend. Aktualisierung: Echtzeit. Einmalkosten: gemäss Kostentabelle Kap. 6. Laufende Kosten: keine."
+  },
+  {
+    "id": "S12",
+    "requirement": "Google Sheets / Google Workspace : Einsatzplanung wird eingelesen, damit Agenda und Verfügbarkeit stimmen",
+    "priority": "S",
+    "answer": "Ja. Die Einsatzplanung im Google Sheet wird automatisch mit der Agenda abgeglichen; Abweichungen zu bereits gebuchten Terminen werden angezeigt. Wir stellen eine passende Sheet-Vorlage bereit. Voraussetzung: ein Beispiel-Sheet der heutigen Planung. Zusatzmodul: integrierte Einsatzplanung direkt im System (Preis gemäss Kapitel 6). Richtung: beidseitig (Sheet ↔ Agenda-Abgleich). Aktualisierung: alle 15 Minuten, konfigurierbar. Einmalkosten: gemäss Kostentabelle Kap. 6. Laufende Kosten: keine."
+  },
+  {
+    "id": "S13",
+    "requirement": "Mailchimp  oder gleichwertig für Newsletter, mit Kommunikationssperren aus dem System",
+    "priority": "S",
+    "answer": "Ja. Patientinnen und Patienten werden automatisch mit Mailchimp abgeglichen; wer gesperrt, verstorben oder abgemeldet ist, wird aktiv aus Mailchimp entfernt. Abmeldungen und Rückläufer aus Mailchimp fliessen ins Dossier zurück. Voraussetzung: Mailchimp-Zugang (API-Schlüssel). Richtung: beidseitig (Sync, Abmeldungen zurück). Aktualisierung: täglich, Abmeldungen Echtzeit. Einmalkosten: gemäss Kostentabelle Kap. 6. Laufende Kosten: keine unsererseits; Mailchimp-Abo der Kundin. Mailchimp wird auf ausdrücklichen Wunsch von TCMswiss als bestehender externer Dienst angebunden. Die Schweizer Datenhaltungszusage für die Praxissoftware erstreckt sich nicht auf die Verarbeitung bei Mailchimp. Übertragen werden ausschliesslich die für den Newsletterversand und die Verwaltung der Kommunikationspräferenzen vereinbarten Kontaktdaten; medizinische Dossierinhalte werden nicht übertragen."
+  },
+  {
+    "id": "S14",
+    "requirement": "pascom ONE  Telefonie, Anruferkennung",
+    "priority": "S",
+    "answer": "Ja. Bei einem Anruf zeigt das System sofort, wer anruft, und öffnet das Patientendossier; aus dem Dossier heraus kann direkt gewählt werden. Keine neue Hardware nötig. Voraussetzung: Zugang zur pascom-Verwaltung für die Schnittstelle und eine Testnebenstelle. Richtung: beidseitig (Anruferkennung lesend, Click-to-Call schreibend). Aktualisierung: Echtzeit. Einmalkosten: gemäss Kostentabelle Kap. 6. Laufende Kosten: keine."
+  },
+  {
+    "id": "S15",
+    "requirement": "Complemedis  für Kräuterbestellungen",
+    "priority": "S",
+    "answer": "Ja. Kräuterrezepturen werden im Patientendossier erfasst und daraus wird eine strukturierte Bestellung erzeugt, die automatisch aus dem System per E-Mail an Complemedis geht (offizieller Bestellweg von Complemedis). Im Dossier wird der Stand der Bestellung geführt: offen (Rezeptur erfasst, noch nicht bestellt), bestellt (E-Mail an Complemedis versendet, mit Datum und Uhrzeit), eingetroffen (von der Assistenz bestätigt, wenn die Lieferung im Standort ankommt) und abgegeben (an die Patientin oder den Patienten ausgehändigt). Die Sendungsverfolgung selbst liegt bei Complemedis. Eine zukünftige direkte Schnittstelle zu Compleweb ist nicht im Grundumfang enthalten und wird bei Bedarf nach Klärung der technischen Voraussetzungen separat offeriert und nach Freigabe umgesetzt. Die beschriebene Bestellung per E-Mail ist enthalten. Richtung: schreibend (Bestellung → Complemedis). Aktualisierung: je Bestellung. Einmalkosten: gemäss Kostentabelle Kap. 6. Laufende Kosten: keine."
+  },
+  {
+    "id": "S16",
+    "requirement": "Outlook / Exchange : Termine beidseitig; abgesagte Termine werden automatisch erkannt und im System als Absage markiert",
+    "priority": "S",
+    "answer": "Vorgesehen: beidseitiger Abgleich von Terminen und Erkennung von Absagen aus Outlook; bei Widersprüchen gilt die Praxissoftware. Technische Klärung vor Auftragserteilung: Bleibt die bestehende Hosted-Exchange-Umgebung bei allnet bestehen oder ist ein Wechsel zu Microsoft 365 vorgesehen? TCMswiss stellt die technischen Angaben beziehungsweise den Kontakt zum zuständigen Anbieter bereit. Auf dieser Basis bestätigen wir die verfügbare Schnittstelle, Berechtigungen und Aktualisierungsfrequenz. Ziel: Echtzeit über Änderungsbenachrichtigungen. Voraussetzung: administrativer Zugang beziehungsweise Freigabe und zwei Testkonten. Richtung: beidseitig. Einmalkosten: im Kostendach der Grundsoftware enthalten. Laufende Kosten: keine unsererseits; bestehende Exchange- beziehungsweise Microsoft-365-Kosten der Kundin."
+  },
+  {
+    "id": "S17",
+    "requirement": "SMS-Versand  als Ergänzung zur E-Mail-Erinnerung; Preis pro Nachricht angeben",
+    "priority": "K",
+    "answer": "Ja. Terminerinnerungen und Nachrichten gehen per SMS über einen Schweizer Anbieter (eCall, zwei Rechenzentren in der Schweiz, ISO 27001), mit TCMswiss als Absender. Patientinnen und Patienten können sich per Link oder per Antwort-SMS abmelden. Kosten pro SMS sind in Kapitel 6 ausgewiesen; die Einrichtung ist kostenlos. Richtung: schreibend, Opt-out lesend. Aktualisierung: Echtzeit. Einmalkosten: gemäss Kostentabelle Kap. 6. Laufende Kosten: Preis je SMS und Einrichtung gemäss Kap. 6."
+  },
+  {
+    "id": "A1",
+    "requirement": "Eine Datenbank über alle Standorte; mehrere Rechtsträger mit eigenem Namen, Adresse, MWST-Nummer, Logo, ZSR und QR-IBAN",
+    "priority": "M",
+    "answer": "Ja. TCMswiss AG und die drei Partner-GmbH laufen in einer Installation, jeder Rechtsträger mit eigener Identität, ZSR, QR-IBAN, Rechnungsnummern und Absender. Weitere Rechtsträger können jederzeit hinzukommen."
+  },
+  {
+    "id": "A2",
+    "requirement": "Standort als eigene Dimension mit Kürzel und Kostenstelle, unabhängig vom Rechtsträger",
+    "priority": "M",
+    "answer": "Ja. Jeder Standort hat Kürzel und Kostenstelle und gehört zu einem Rechtsträger; Kürzel und Kostenstellen erscheinen in allen Auswertungen und in der Übergabe an die Buchhaltung."
+  },
+  {
+    "id": "A3",
+    "requirement": "Zentrale Bearbeitung über alle Rechtsträger hinweg in einem Arbeitsgang",
+    "priority": "M",
+    "answer": "Ja. Die Zentrale kann Rechnungs-, Mahn- und Kontrollläufe über alle berechtigten Rechtsträger hinweg in einem Arbeitsgang ausführen. Rechnungen, Buchungen und Auswertungen bleiben je Rechtsträger getrennt. Eine Person kann für mehrere Standorte und Rechtsträger arbeiten; jede Behandlung bleibt eindeutig zugeordnet."
+  },
+  {
+    "id": "A4",
+    "requirement": "Ein Patientendossier, auch bei Behandlung an mehreren Standorten und bei mehreren Rechtsträgern",
+    "priority": "M",
+    "answer": "Ja. Ein Patient hat ein Dossier; wer welche Behandlungen sieht, richtet sich nach dem Rechtsträger, für den behandelt wurde. Das gilt überall gleich: in der Suche, in Auswertungen, in Exporten und in der Schnittstelle."
+  },
+  {
+    "id": "A5",
+    "requirement": "Standort auf einen anderen Rechtsträger umstellen (Auslagerung an Partner) ohne Datenverlust, mit Stichtagstrennung der Debitoren",
+    "priority": "M",
+    "answer": "Ja. Ein Standort kann mit einem festgelegten Stichtag einem anderen Rechtsträger zugeordnet werden. Historische Behandlungen, Rechnungen, Zahlungen und offene Debitoren bleiben dem bisherigen Rechtsträger zugeordnet. Neue Leistungen werden ab dem Stichtag dem neuen Rechtsträger zugeordnet und mit dessen Rechnungsidentität abgerechnet. Bestehende Patientendossiers und Dokumente bleiben erhalten; Zugriffsrechte und Auswertungen berücksichtigen die Zuordnung vor und nach dem Wechsel. Offene Vorgänge über den Stichtag werden vor der Umstellung gemeinsam geprüft."
+  },
+  {
+    "id": "A6",
+    "requirement": "Partnergesellschaften sehen nur ihre Daten; die Zentrale sieht alle",
+    "priority": "M",
+    "answer": "Ja. Rechte werden zentral im System durchgesetzt und nicht nur in der Oberfläche ausgeblendet; das gilt auch für Schnittstelle, Exporte und Auswertungen."
+  },
+  {
+    "id": "A7",
+    "requirement": "Persönliche Konten; Eröffnung und Sperrung durch TCMswiss selbst, ohne Anbieter",
+    "priority": "M",
+    "answer": "Ja. Persönliche Konten für alle Mitarbeitenden; die Zentrale eröffnet, ändert und sperrt Konten jederzeit selbst, ohne uns, und die Anzahl ist nicht begrenzt. Für das Eröffnen fallen keine Einrichtungskosten an. Die laufende Nutzung wird monatlich je aktives Konto nach Rolle und je Standort verrechnet (Preise in Kapitel 6); gesperrte Konten kosten nichts. Konten sind persönlich und dürfen nicht geteilt werden, damit Zeiterfassung, Leistungen und Protokoll der richtigen Person zugeordnet bleiben."
+  },
+  {
+    "id": "A8",
+    "requirement": "Rollen: TherapeutIn, Assistenz, Praxisleitung, Zentrale, Geschäftsleitung",
+    "priority": "M",
+    "answer": "Ja. Fünf Rollen (Zentrale, Standortleitung, Therapie, Assistenz, Partner-Geschäftsleitung), je Standort und Rechtsträger vergeben, durch TCMswiss selbst pflegbar. Die Rolle bestimmt auch den monatlichen Kontopreis (Kapitel 6)."
+  },
+  {
+    "id": "A9",
+    "requirement": "Unveränderliches Änderungsprotokoll; abgeschlossene Einträge nur als nachvollziehbare Korrektur änderbar",
+    "priority": "M",
+    "answer": "Ja. Alle Änderungen an Dokumentation, Leistungen, Rechnungen und Zahlungen werden unveränderlich protokolliert (wer, wann, was, vorher/nachher). Abgeschlossenes wird nie überschrieben, sondern über Storno oder Korrekturbeleg berichtigt."
+  },
+  {
+    "id": "A10",
+    "requirement": "Zentrale Pflege von Firmenstandards: Personal, Standorte, Preise an einer Stelle für alle Praxen",
+    "priority": "M",
+    "answer": "Ja. Preise, Ziffern, Versicherer, Vorlagen und Regeln werden zentral von TCMswiss gepflegt und gelten sofort an allen Standorten, ohne Anpassung durch uns."
+  },
+  {
+    "id": "A11",
+    "requirement": "Austritt: Konto sperren, fachliche Zuordnung der Altdaten bleibt erhalten",
+    "priority": "M",
+    "answer": "Ja. Verlässt jemand die Praxis, wird das Konto deaktiviert und fällt ab dem Folgemonat aus der Verrechnung; alle bisherigen Behandlungen, Rechnungen und Einträge bleiben der Person zugeordnet und auswertbar."
+  },
+  {
+    "id": "B1",
+    "requirement": "Anmeldung und Einwilligung auf dem  Tablet  in der Praxis, mit Unterschrift und Ablage im Dossier",
+    "priority": "M",
+    "answer": "Ja. Neue Patientinnen und Patienten füllen die Anmeldung am Tablet aus und unterschreiben direkt darauf; die Unterschrift wird mit Zeitstempel im Dossier gespeichert und kann als PDF angezeigt werden. Bereits beim Ausfüllen prüft das System, ob die Person schon erfasst ist (B3), und weist die Assistenz darauf hin."
+  },
+  {
+    "id": "B2",
+    "requirement": "Zusatzversicherung, Produkt, Deckung und Limiten je Person hinterlegbar",
+    "priority": "M",
+    "answer": "Ja. Bei der Aufnahme wird der Stand je Person erfasst: Versicherer, Versichertennummer und Grunddeckung beim Einlesen der Versichertenkarte (B8) direkt übernommen; Zusatzversicherung, Produkt, Deckung und Limiten (z.B. CHF 1'000 oder 80 % pro Kalenderjahr) trägt die Assistenz nach Police oder Angabe der Person ein. Ab dann führt das System den Stand live: Jede abgerechnete Behandlung wird auf die Limite angerechnet, der Restbetrag ist im Dossier sichtbar, und vor Erreichen der Limite warnt das System bei der Rechnungsstellung (E11). Zum Jahreswechsel wird der Verbrauch auf null gesetzt; der Versicherungsstand bleibt als Stand des Vorjahres stehen und wird als «zu bestätigen» markiert, weil Kasse, Produkt oder Limiten per 1. Januar geändert haben können. Beim ersten Besuch im neuen Jahr liest die Assistenz die Karte neu ein oder bestätigt den Stand; bis dahin zeigt das Dossier den Hinweis und die Rechnungsstellung warnt. Frühere Stände bleiben als Verlauf erhalten."
+  },
+  {
+    "id": "B3",
+    "requirement": "Dublettenerkennung und Zusammenführung",
+    "priority": "M",
+    "answer": "Ja. Das System erkennt Doppelerfassungen selbst und warnt sofort, ohne dass jemand suchen muss: bei jeder Neuanlage, bei der Anmeldung am Tablet (B1), bei Anmeldungen von der Website (S11) und bei der Datenübernahme aus MEDICOwin (H6). Die Prüfung ist tolerant gegenüber Schreibweisen: Gross- und Kleinschreibung, Umlaute und Akzente, Leerzeichen und Bindestriche, Vertauschungen von Vor- und Nachname sowie Tippfehler werden berücksichtigt (z.B. «meier anna» und «Anna Meier» oder «Müller» und «Mueller»); dazu Geburtsdatum, Versichertennummer, Telefonnummer und E-Mail. Die Warnung zeigt die mutmasslich gleiche Person mit dem bestehenden Dossier; die Assistenz bestätigt, ob es dieselbe Person ist, und kann Dossiers zusammenführen. Jede Zusammenführung wird protokolliert und ist nachvollziehbar."
+  },
+  {
+    "id": "B4",
+    "requirement": "Einwilligungen und Entbindung von der Schweigepflicht versioniert dokumentiert",
+    "priority": "M",
+    "answer": "Ja. Einwilligungen (Datenbearbeitung, Schweigepflichtentbindung, Marketing) werden mit Datum und genauem Wortlaut gespeichert; ändert sich der Text, bleibt sichtbar, welche Fassung die Person unterschrieben hat. Ohne Schweigepflichtentbindung lässt sich kein Bericht versenden."
+  },
+  {
+    "id": "B5",
+    "requirement": "Kommunikationssperren je Person, wirksam auch für Erinnerungen und Newsletter",
+    "priority": "M",
+    "answer": "Ja. Kommunikationssperren (keine SMS, keine E-Mail, keine Werbung, kein Kontakt) gelten überall im System; jede Nachricht wird vor dem Versand zentral geprüft."
+  },
+  {
+    "id": "B6",
+    "requirement": "Aufnahmeformular auf der Website; die Daten laufen direkt in die Stammdaten, ohne Abtippen (siehe S13)",
+    "priority": "S",
+    "answer": "Ja. Siehe S11: Anmeldungen von der Website kommen in eine Prüfliste, werden automatisch auf bereits vorhandene Personen geprüft (B3) und mit einem Klick als neues Dossier übernommen oder dem bestehenden zugeordnet."
+  },
+  {
+    "id": "B7",
+    "requirement": "Chinesische Schreibweisen erfassen und suchen (Unicode)",
+    "priority": "S",
+    "answer": "Ja. Namen und Texte können in Deutsch und Chinesisch erfasst und gesucht werden; eine Umschrift ist nicht nötig."
+  },
+  {
+    "id": "B8",
+    "requirement": "Erfassung über Versichertenkarte mit Kartenleser",
+    "priority": "S",
+    "answer": "Ja. Die Versichertenkarte wird am Kartenleser eingelesen; die Karte selbst enthält die Identifikation (Kartennummer, AHV-Nummer, Name, Geburtsdatum, Versicherer). Mit der Kartennummer fragt das System den offiziellen Online-Abfragedienst der Versicherer ab (VeKa-Center von santéservices/SASIS, bei einzelnen Versicherern Covercard von Ofac) und übernimmt: Versicherer und Kontaktstelle für die Rechnung, Versicherten- und Policennummer, Adresse, Gültigkeit der Karte, Deckung der Grundversicherung (verbindlich für alle Versicherer) sowie die Angaben zur Zusatzversicherung, soweit der jeweilige Versicherer sie freigibt. Das konkrete Komplementärmedizin-Produkt und die Limite liefern die Versicherer über diesen Dienst in der Regel nicht; diese trägt die Assistenz nach Police oder Angabe der Patientin oder des Patienten ein (B2). Voraussetzung: Zugang zum Abfragedienst für TCMswiss und ein Kartenleser je Standort (ca. CHF 35 pro Gerät); die Abfrage der Zusatzversicherung braucht die Einwilligung der Person."
+  },
+  {
+    "id": "C1",
+    "requirement": "Agenda über mehrere Standorte in einer Ansicht; Terminvergabe auch für andere Standorte",
+    "priority": "M",
+    "answer": "Ja. Eine Agenda für alle Standorte: Termine im 5-Minuten-Raster, Räume und Behandlungsplätze je Standort, Therapiepersonen je Standort, keine Doppelbelegungen, Ansichten je Standort und je Therapieperson, Verschieben per Ziehen. Die Agenda ist das meistgenutzte Teil des Systems und wird entsprechend sorgfältig gebaut."
+  },
+  {
+    "id": "C2",
+    "requirement": "Agenda je TherapeutIn",
+    "priority": "M",
+    "answer": "Ja. Siehe C1: Ansichten je Standort, je Therapieperson und über mehrere Standorte hinweg, mit Räumen als Ressourcen."
+  },
+  {
+    "id": "C3",
+    "requirement": "Online-Buchung durch PatientInnen, beidseitig synchron",
+    "priority": "K – optional, gemäss Abstimmung",
+    "answer": "Optional, siehe S6. Wird die Online-Terminbuchung beauftragt, ist die beidseitige Synchronisation von Buchungen und Verfügbarkeiten mit der Praxisagenda Bestandteil dieses Zusatzmoduls."
+  },
+  {
+    "id": "C4",
+    "requirement": "E-Mail-Erinnerung automatisch 48 Stunden vor dem Termin , Vorlauf konfigurierbar",
+    "priority": "M",
+    "answer": "Ja. Erinnerung 48 Stunden vor dem Termin (Vorlauf einstellbar) per SMS oder E-Mail, je Patient wählbar; bei Verschiebung oder Absage wird neu berechnet, kein Doppelversand, Sperren werden beachtet."
+  },
+  {
+    "id": "C5",
+    "requirement": "Absagen aus Outlook werden automatisch erkannt und im System als Absage markiert",
+    "priority": "M",
+    "answer": "Vorgesehen gemäss S16: Absagen aus Outlook werden erkannt und in der Praxisagenda als Absage markiert. Die technische Anbindung an die bestehende Exchange-Umgebung beziehungsweise Microsoft 365 ist vor Auftragserteilung zu bestätigen."
+  },
+  {
+    "id": "C6",
+    "requirement": "Absagen kategorisieren als  entschuldigt / ermässigt / unentschuldigt , mit hinterlegter Kostenfolge je Kategorie",
+    "priority": "M",
+    "answer": "Ja. Absagen werden mit Kategorie (entschuldigt, ermässigt, unentschuldigt) und Kostenfolge erfasst; das System schlägt die Kategorie nach Frist vor, die Kategorien und Fristen pflegt TCMswiss selbst. (Fristen und Gebühren konfigurierbar) Absagen kommen per Telefon, Outlook oder Online-Buchung (sofern das optionale Zusatzmodul beauftragt wird). Die Erkennung von Absagen aus E-Mails ist nicht im Grundumfang enthalten und wird bei Bedarf später separat offeriert und nach Freigabe umgesetzt."
+  },
+  {
+    "id": "C7",
+    "requirement": "Versäumte Konsultationen automatisch zur Verrechnung vorschlagen, gemäss unserer Regelung",
+    "priority": "M",
+    "answer": "Ja. Für unentschuldigte oder zu späte Absagen schlägt das System eine Ausfallrechnung vor; die Zentrale prüft die Liste und gibt frei. Die Ausfallrechnung ist ein eigener Rechnungstyp ausserhalb des Tarifs 590."
+  },
+  {
+    "id": "C8",
+    "requirement": "Auswertung der Absagen nach Kategorie, Therapieperson und Standort",
+    "priority": "M",
+    "answer": "Ja. Auswertung der Absagen je Standort, Therapieperson, Kategorie und Zeitraum."
+  },
+  {
+    "id": "C9",
+    "requirement": "Recall Listen automatisiert",
+    "priority": "M",
+    "answer": "Ja. Patientinnen und Patienten ohne Folgetermin werden nach einer einstellbaren Zeit automatisch erinnert. In mehreren Stufen mit eigenen Vorlagen (z.B. nach 3, 6 und 12 Monaten). Sobald ein Termin gebucht wird, stoppt die Erinnerung."
+  },
+  {
+    "id": "C10",
+    "requirement": "Automatisierte Emails aus Recall Listen",
+    "priority": "M",
+    "answer": "Ja. Siehe C9: je Stufe eine eigene Vorlage, von TCMswiss selbst pflegbar."
+  },
+  {
+    "id": "C11",
+    "requirement": "Verfügbarkeit der TherapeutInnen aus der Einsatzplanung übernehmen (siehe S14)",
+    "priority": "S",
+    "answer": "Ja. Siehe S12 (Einsatzplanung im Google Sheet; der Verweis im Katalog auf S14 meint vermutlich S12)."
+  },
+  {
+    "id": "C12",
+    "requirement": "Serientermine und Behandlungsserien",
+    "priority": "S",
+    "answer": "Ja. Serientermine mit Regel (z.B. wöchentlich, 10 Mal) im gleichen Terminmodell, einzeln anpassbar."
+  },
+  {
+    "id": "D1",
+    "requirement": "Krankengeschichte zweisprachig Deutsch und Chinesisch im selben Eintrag",
+    "priority": "M",
+    "answer": "Ja. Elektronische Krankengeschichte je Patient mit Einträgen in Deutsch und Chinesisch, Datum und Autor, durchsuchbar in beiden Schriften. Abgeschlossene Einträge werden nicht überschrieben, sondern mit Korrekturvermerk ergänzt."
+  },
+  {
+    "id": "D2",
+    "requirement": "Krankenbericht aus den Notizen der eKG erzeugen , je Versicherer als Vorlage, prüf- und korrigierbar vor dem Versand",
+    "priority": "M",
+    "answer": "Ja. Krankenberichte werden aus Vorlagen je Versicherer erstellt (Vorlagen pflegt TCMswiss selbst) und aus der Krankengeschichte vorausgefüllt; Entwurf, Korrekturen und die versendete Fassung bleiben im Dossier. Versand nur mit vorliegender Schweigepflichtentbindung."
+  },
+  {
+    "id": "D3",
+    "requirement": "Bericht  zusammen mit der Rechnung  versenden, über den gewählten Kanal",
+    "priority": "M",
+    "answer": "Ja. Bericht und Rechnung können zusammen versendet werden, je Empfänger über den passenden Kanal (E-Mail, HIN, Post, eBill nur Rechnung)."
+  },
+  {
+    "id": "D4",
+    "requirement": "Dokumentation lückenlos und datiert, tauglich als Nachweis bei Wirtschaftlichkeitsprüfungen",
+    "priority": "M",
+    "answer": "Ja. Behandlungen ohne Dokumentation werden angezeigt; die Dokumentation ist so aufgebaut (Datum, Autor, Behandlung, Ziffern), dass sie die nachvollziehbare Dokumentation für Wirtschaftlichkeitsprüfungen der Versicherer unterstützt."
+  },
+  {
+    "id": "D5",
+    "requirement": "Externe Dokumente scannen und im Dossier ablegen; Einsichtsrecht abbildbar",
+    "priority": "M",
+    "answer": "Ja. Gescannte Dokumente werden dem richtigen Patienten zugeordnet, mit Vorschau und Bestätigung; Fehlablagen lassen sich korrigieren (verschieben, protokolliert). Zusätzlich gibt es einen allgemeinen Ablagebereich je Standort und Rechtsträger für Dokumente ohne Patientenbezug. Texterkennung (OCR) ist nicht im Grundumfang."
+  },
+  {
+    "id": "D6",
+    "requirement": "Aufbewahrung zwanzig Jahre gewährleistet, mit Löschkonzept danach",
+    "priority": "M",
+    "answer": "Ja. Dossiers werden 20 Jahre ab dem letzten Behandlungskontakt aufbewahrt, täglich an zwei Orten in der Schweiz gesichert und regelmässig auf Wiederherstellbarkeit geprüft (Details H4). Nach Ablauf der Frist stellt das System eine Löschliste zusammen; die Zentrale prüft sie und gibt die Löschung frei. Über jede Löschung bleibt ein Nachweis erhalten (Patientennummer, Datum, wer freigegeben hat), die medizinischen Inhalte selbst sind danach unwiederbringlich gelöscht. Ein Export aller Daten ist jederzeit möglich."
+  },
+  {
+    "id": "D7",
+    "requirement": "Automatisierte Erstellung von Berichten je nach Krankenkassen-Anforderungen (z.B. proaktiv vor der 8. Behandlung heisst Erinnerung bei der 5. Behandlung)",
+    "priority": "M",
+    "answer": "Ja. Regeln je Versicherer (z.B. «Bericht vor der 8. Behandlung») pflegt TCMswiss selbst; das System zählt die Behandlungen mit und erinnert die Therapieperson rechtzeitig, mit direktem Sprung in den Berichtsentwurf."
+  },
+  {
+    "id": "D8",
+    "requirement": "Strukturierte TCM-Befundung als konfigurierbare Vorlage",
+    "priority": "S",
+    "answer": "Ja. Strukturierte Befundung mit Vorlagen, die TCMswiss in einem einfachen Vorlagen-Editor selbst erstellt (Zunge, Puls, Syndrome als Auswahllisten, Text). Es können mehrere Vorlagen bestehen; die Therapieperson wählt bei der Befundung die passende aus. Freitext bleibt möglich; Befunde fliessen in die Berichte ein."
+  },
+  {
+    "id": "E1",
+    "requirement": "Abrechnung in  5-Minuten-Schritten ; Preis pro Einheit nach Behandlungsmethode, TherapeutIn, Versicherung hinterlegbar",
+    "priority": "M",
+    "answer": "Ja. Abrechnung in 5-Minuten-Einheiten; der Preis je Einheit lässt sich je Methode festlegen und je Versicherer, Therapieperson und Standort übersteuern. Der Mehrwertsteuersatz ist je Leistungsart und Rechtsträger hinterlegt und wird auf der Rechnung korrekt ausgewiesen. Alles pflegt TCMswiss selbst; wir setzen gegen die offizielle Tarif-590-Dokumentation um."
+  },
+  {
+    "id": "E2",
+    "requirement": "Behandlungsgrund zwingend erfassen: Krankheit, Unfall, Mutterschaft, Prävention",
+    "priority": "M",
+    "answer": "Ja. Der Behandlungsgrund (Krankheit, Unfall, Mutterschaft, Prävention) ist Pflichtfeld beim Anlegen eines Falls; ohne ihn kann keine Leistung erfasst werden. Er geht in die Rechnung."
+  },
+  {
+    "id": "E3",
+    "requirement": "Gleiche Verrichtung mehrfach pro Sitzung wird zu  einer  Zeile mit summierter Zeit",
+    "priority": "M",
+    "answer": "Ja. Wird dieselbe Verrichtung in einer Sitzung mehrfach erbracht (z.B. Akupunktur 20 und später 10 Minuten), erfasst die Therapieperson beides einzeln; auf der Rechnung erscheint eine Zeile mit der Gesamtzeit."
+  },
+  {
+    "id": "E4",
+    "requirement": "Aktuelle Ziffernlogik ab 2026: 1004 als Sammelposition; entfallene Ziffern gesperrt; Ziffernstamm zentral pflegbar mit Stichtag und Historie",
+    "priority": "M",
+    "answer": "Ja. Der Ziffernstamm wird zentral von TCMswiss gepflegt, mit Gültigkeit ab Stichtag und vollständiger Historie: Jede Behandlung wird mit den Ziffern abgerechnet, die am Behandlungsdatum galten. Entfallene Ziffern sind für Neues gesperrt, für Altes weiterhin lesbar; 1004 ist als Sammelposition hinterlegt."
+  },
+  {
+    "id": "E5",
+    "requirement": "Zeiterfassung der Behandlung  über Beginn und Ende und angewendete Behandlungsmethoden",
+    "priority": "M",
+    "answer": "Ja. Die Therapieperson erfasst je Behandlung Beginn und Ende sowie die angewendeten Methoden; mehrere Methoden nacheinander sind in einer Sitzung möglich. Daraus entstehen die 5-Minuten-Einheiten für die Rechnung."
+  },
+  {
+    "id": "E6",
+    "requirement": "Parallelbehandlung wird erkannt : Behandelt dieselbe Person gleichzeitig mehrere Patientinnen, wird die Einwirkzeit zwingend als  1146  vorgeschlagen",
+    "priority": "M",
+    "answer": "Ja. Behandelt eine Therapieperson zwei Personen gleichzeitig (z.B. Nadeln wirken ein), erkennt das System die Überlappung automatisch, auch über Standorte hinweg und schlägt für die überlappende Zeit zwingend die Einwirkzeit-Ziffer 1146 vor, nicht als freie Wahl."
+  },
+  {
+    "id": "E7",
+    "requirement": "Preis für 1146 als Prozentsatz des Akupunkturhonorars hinterlegbar, mit Obergrenze des Gesamtbetrags",
+    "priority": "M",
+    "answer": "Ja. Der Preis der Einwirkzeit wird als Prozentsatz des Behandlungshonorars hinterlegt, dazu eine Obergrenze je Sitzung; beides pflegt TCMswiss selbst. Es gibt keinen offiziell festgelegten Preis für 1146, die Versicherer erwarten einen deutlich reduzierten Ansatz."
+  },
+  {
+    "id": "E8",
+    "requirement": "Warnung bei mehr als zwei gleichzeitig behandelten Personen",
+    "priority": "M",
+    "answer": "Ja. Ab der dritten gleichzeitig behandelten Person erhält die erfassende Person eine deutliche Warnung (Hinweis, keine Blockade)."
+  },
+  {
+    "id": "E9",
+    "requirement": "Tarifblätter je  Versicherer × Standort × Therapieperson ; regionale Preise abbildbar",
+    "priority": "M",
+    "answer": "Ja. Preise sind je Versicherer, Standort (regionale Preise) und Therapieperson hinterlegbar; eine Tarifblatt-Ansicht zeigt der Zentrale jederzeit, welcher Preis in welcher Kombination gilt."
+  },
+  {
+    "id": "E10",
+    "requirement": "Höchstpreise je Versicherer hinterlegen und automatisch prüfen",
+    "priority": "M",
+    "answer": "Ja. Höchstpreise je Versicherer werden hinterlegt (TCMswiss pflegt sie); beim Rechnungsaufbau prüft das System jeden Preis dagegen und zeigt Überschreitungen vor dem Versand an."
+  },
+  {
+    "id": "E11",
+    "requirement": "Abrechnungsvorschlag  aus Methode, erfasster Zeit und Versicherer; optionales Kostendach nur als Warnschwelle",
+    "priority": "M",
+    "answer": "Ja. Aus Methode, Zeit, Versicherer und Tarifblatt erstellt das System automatisch den vollständigen Rechnungsvorschlag (inkl. Zusammenfassung, Einwirkzeit, Höchstpreisprüfung); die Therapieperson bestätigt statt zu rechnen. Ein Kostendach (z.B. Limite der Patientin) warnt nur, blockiert nie."
+  },
+  {
+    "id": "E12",
+    "requirement": "Keine standardisierten Paketrechnungen : Das System muss den Einzelfall abbilden und identische Rechnungsmuster erkennen",
+    "priority": "M",
+    "answer": "Ja. Es gibt keine standardisierten Paketrechnungen; jede Rechnung entsteht aus den tatsächlich erfassten Zeiten und Methoden. Zusätzlich zeigt eine Auswertung der Zentrale, wo sich identische Rechnungsmuster je Therapieperson häufen — damit TCMswiss es sieht, bevor ein Versicherer es sieht."
+  },
+  {
+    "id": "E13",
+    "requirement": "Anerkennungen je Person führen (EMR, ASCA, NVS/SPAK, OdA AM, Visana, kantonale BAB) mit Gültigkeit;  Vorwarnung vor Ablauf",
+    "priority": "M",
+    "answer": "Ja. Anerkennungen (EMR, ASCA, NVS/SPAK, OdA AM, Visana, kantonale BAB) werden je Therapieperson mit Gültigkeit und Beleg geführt; vor Ablauf warnt das System die Zentrale und die Person rechtzeitig. Die Liste der Anerkennungsstellen ist erweiterbar."
+  },
+  {
+    "id": "E14",
+    "requirement": "Fehlt oder ist die für diesen Versicherer nötige Anerkennung abgelaufen, wird die Rechnung blockiert und gemeldet",
+    "priority": "M",
+    "answer": "Ja. Je Versicherer ist hinterlegt, welche Anerkennung er verlangt (TCMswiss pflegt das). Fehlt am Behandlungsdatum eine gültige passende Anerkennung, wird die Rechnung blockiert und die Zentrale benachrichtigt — keine Warnung, eine echte Sperre."
+  },
+  {
+    "id": "E15",
+    "requirement": "Assistenzpersonal kann keine therapeutischen Leistungen erfassen; Rollen erzwingen das",
+    "priority": "M",
+    "answer": "Ja. Die Rolle Assistenz hat kein Recht, therapeutische Leistungen zu erfassen; das wird zentral erzwungen, nicht nur ausgeblendet."
+  },
+  {
+    "id": "E16",
+    "requirement": "Ein- und Ausloggen der Mitarbeitenden  als Arbeitszeit; Abgleich Arbeitszeit gegen fakturierte Zeit je Person und Monat",
+    "priority": "M",
+    "answer": "Ja. Ein- und Ausloggen gilt als Arbeitszeit (integrierte Zeiterfassung S8). Eine Monatsauswertung stellt je Person die Arbeitszeit der fakturierten Behandlungszeit (Ziffern 1004 und 1146) gegenüber, mit Quote. Beides liegt im selben System, darum ist kein Fremdsystem nötig."
+  },
+  {
+    "id": "E17",
+    "requirement": "Tagesprotokoll je Standort und Therapieperson",
+    "priority": "M",
+    "answer": "Ja. Tagesprotokoll je Standort und Therapieperson: alle Behandlungen des Tages chronologisch mit Zeiten, Methoden, Patient und sichtbaren Parallelbehandlungen; druck- und exportfähig."
+  },
+  {
+    "id": "E18",
+    "requirement": "Nachträgliche Korrekturen mit Protokoll und Wirkung auf die Auswertungen",
+    "priority": "M",
+    "answer": "Ja. Korrekturen an erfassten Leistungen werden unveränderlich protokolliert (wer, wann, was, vorher/nachher). Bereits fakturierte Leistungen werden per Storno und Neuausstellung korrigiert. Auswertungen rechnen auf dem korrigierten Stand und zeigen, dass korrigiert wurde."
+  },
+  {
+    "id": "F1",
+    "requirement": "Monatlicher Rechnungslauf über alle Rechtsträger und Standorte in einem Arbeitsgang",
+    "priority": "M",
+    "answer": "Ja. Ein Rechnungslauf für alle Rechtsträger und Standorte in einem Arbeitsgang: Das System stellt alle abrechenbaren Behandlungen zusammen und erzeugt je Rechtsträger die Rechnungen mit eigenem Nummernkreis, QR-IBAN und Absender. Eine Prüfliste zeigt vorher alle Hindernisse (z.B. fehlende Anerkennung, fehlende Einwilligung), damit der Lauf nicht mittendrin stoppt. Vorschau und definitiver Lauf."
+  },
+  {
+    "id": "F2",
+    "requirement": "Versandweg je Rechnung wählbar : Papier, E-Mail, HIN, eBill; Standard je Patient hinterlegbar",
+    "priority": "M",
+    "answer": "Ja. Der Versandweg (Papier, E-Mail, HIN, eBill) ist als Standard je Patient hinterlegt und je Rechnung änderbar. Papier kommt als Druckstapel-PDF für die Zentrale. Sperren und Voraussetzungen (z.B. eBill-Registrierung) werden automatisch geprüft."
+  },
+  {
+    "id": "F3",
+    "requirement": "QR-Rechnung mit der richtigen QR-IBAN des Rechtsträgers und der ZSR-Nummer der Therapieperson",
+    "priority": "M",
+    "answer": "Ja. Jede Rechnung wird pro Therapieperson und Patient erstellt und trägt die QR-IBAN des Rechtsträgers sowie die persönliche ZSR-Nummer der Therapieperson. Sammelrechnungen über mehrere Therapiepersonen oder eine fremde ZSR sind im System nicht möglich."
+  },
+  {
+    "id": "F4",
+    "requirement": "Rückforderungsbeleg für die Patientin oder den Patienten (Tiers garant), im gültigen Print-Template",
+    "priority": "M",
+    "answer": "Ja. Der Rückforderungsbeleg für die Patientin wird im offiziellen, gültigen Layout erzeugt (aus denselben Rechnungsdaten), auf Wunsch als separates Dokument."
+  },
+  {
+    "id": "F5",
+    "requirement": "generalInvoice 5.0 produktiv ab 01.01.2027 , damit die Testmigration bereits im Zielstandard abgenommen wird",
+    "priority": "M",
+    "answer": "Ja. generalInvoice 5.0 ist ab 01.01.2027 produktiv, sodass die Testmigration bereits im Zielstandard abgenommen wird. Voraussetzung: TCMswiss stellt bis Ende Oktober 2026 Testfälle, den Datenexport aus MEDICOwin und, sofern verfügbar, einen Testzugang beim Versicherer oder Intermediär zur Verfügung."
+  },
+  {
+    "id": "F5a",
+    "requirement": "Umstieg auf 5.0 und künftige Standard- und Tarifwechsel sind  im Wartungspreis enthalten , nicht kostenpflichtiges Upgrade",
+    "priority": "M",
+    "answer": "Ja. Der Umstieg auf generalInvoice 5.0 sowie künftige Wechsel des Rechnungsstandards und strukturelle Änderungen des Tarifs 590 (neue Regeln, neue Pflichtangaben, geänderte Ziffernlogik) setzen wir im Rahmen der Wartung um, ohne kostenpflichtiges Upgrade. Laufende Werte wie Preise, Höchstpreise je Versicherer oder Gültigkeitsdaten einzelner Ziffern kann die Zentrale jederzeit selbst im System eintragen und muss nicht auf uns warten; auf Wunsch übernehmen wir auch das."
+  },
+  {
+    "id": "F6",
+    "requirement": "Automatisierter, mehrstufiger Mahnlauf, getrennt vom Rechnungslauf auslösbar",
+    "priority": "M",
+    "answer": "Ja. Mehrstufiger Mahnlauf, getrennt vom Rechnungslauf, mit Vorschau. Stufen, Fristen und Gebühren pflegt TCMswiss je Rechtsträger selbst. Einzelne Rechnungen können mit Begründung ausgenommen werden; Rechnungen im Inkasso werden nicht mehr gemahnt. Zum Schutz vor Mahnungen an Personen, die schon bezahlt haben, zeigt der Lauf das Datum des letzten Zahlungsabgleichs; höhere Mahnstufen und die Inkasso-Übergabe gehen nur mit aktuellem Abgleich."
+  },
+  {
+    "id": "F7",
+    "requirement": "Aufstellung offener Positionen je Patient auf Knopfdruck, versendbar",
+    "priority": "M",
+    "answer": "Ja. Aufstellung aller offenen Positionen eines Patienten auf Knopfdruck aus dem Dossier, als PDF, versendbar über den gewählten Kanal."
+  },
+  {
+    "id": "F8",
+    "requirement": "Zahlungseingänge automatisch abgleichen und je Rechtsträger zuordnen;  Debitorenabgleich mit Abacus  ohne Doppelerfassung",
+    "priority": "M",
+    "answer": "Ja. Zahlungseingänge werden täglich automatisch abgeholt (S3), den Rechnungen und dem richtigen Rechtsträger zugeordnet; Unklares kommt in eine Zuordnungsliste. Der Abgleich mit Abacus erfolgt ohne Doppelerfassung: Rechnungen und Zahlungen werden einmal bei uns erfasst und als Buchungen an Abacus übergeben; Abacus ist nie Erfassungsquelle."
+  },
+  {
+    "id": "F9",
+    "requirement": "Teilzahlungen, Gutschriften, Rückerstattungen, Stornierungen nachvollziehbar",
+    "priority": "M",
+    "answer": "Ja. Teilzahlungen, Gutschriften, Rückerstattungen und Stornierungen sind eigene, protokollierte Belege; der Saldo jeder Rechnung ist jederzeit aus den Einzelbewegungen nachvollziehbar. Stornos und Gutschriften werden der Patientin oder dem Patienten über den vorgesehenen Versandweg bereitgestellt; der Rechnungsverlauf bleibt vollständig nachvollziehbar. Eine zusätzliche elektronische Übermittlung erfolgt nur im gemäss S4 vorgesehenen Fall. Rückerstattungen werden mit Auszahlungsvermerk geführt."
+  },
+  {
+    "id": "F10",
+    "requirement": "Debitorenverluste kennzeichnen und auswerten",
+    "priority": "M",
+    "answer": "Ja. Rechnungen können mit Grund und Datum als Verlust gekennzeichnet werden; Auswertung je Rechtsträger, Standort und Zeitraum; Übergabe an Abacus als Abschreibung."
+  },
+  {
+    "id": "F11",
+    "requirement": "Bar-, Karten- und TWINT-Zahlung;  digitales Kassenbuch je Standort  mit Tagesabschluss",
+    "priority": "M",
+    "answer": "Ja. Bar-, Karten- und TWINT-Zahlungen werden am Empfang mit Zahlungsart und Betrag gegen die Rechnung erfasst und sofort verbucht. Digitales Kassenbuch je Standort mit Anfangsbestand, Ein- und Ausgängen und Tagesabschluss (Soll/Ist mit Differenz), protokolliert und an Abacus übergeben. Die Zahlung selbst läuft weiterhin über die bestehenden Kartenterminals bzw. TWINT; das Terminal wird im Grundumfang nicht angesteuert."
+  },
+  {
+    "id": "F12",
+    "requirement": "Spesen digital : Assistenzen fotografieren Belege und laden sie hoch; Freigabe durch die Zentrale, Übergabe an Abacus",
+    "priority": "M",
+    "answer": "Ja. Die Assistenz macht mit dem Handy in der Web-App ein Foto des Belegs, mehr nicht. Eine KI liest den Beleg aus und trägt Betrag, Datum, Lieferant, MWST-Anteil und einen Kategorievorschlag automatisch ein; Standort und Rechtsträger werden aus dem Konto der einreichenden Person vorbelegt. Die Assistenz sieht die erkannten Angaben neben dem Foto, korrigiert falls nötig und reicht ein. Die Zentrale gibt frei oder lehnt mit Begründung ab; freigegebene Spesen gehen mit Beleg an Abacus. Der Stand ist für alle Beteiligten sichtbar. Die KI-Auswertung erfolgt auf Schweizer Infrastruktur gemäss H2; ob lokal betrieben oder als Schweizer Cloud-Dienst, legen wir bei der Umsetzung fest."
+  },
+  {
+    "id": "F13",
+    "requirement": "Übergabe an Inkasso und Betreibung mit Rückmeldung ins Dossier",
+    "priority": "M",
+    "answer": "Ja. Übergabe an Inkasso mit Statusführung (S7), Betreibung als weiterer Status danach. Rückmeldungen (Zahlung, Verlustschein, Abschluss) sind im Dossier sichtbar; bei Direktzahlung während eines Verfahrens warnt das System. Die Übergabe geht nur mit aktuellem Zahlungsabgleich."
+  },
+  {
+    "id": "F14",
+    "requirement": "Mitarbeitendenkonditionen abbilden: reduzierter Tarif oder Arbeitgeberbeitrag je Behandlung, getrennt auswertbar",
+    "priority": "S",
+    "answer": "Ja. Patientinnen und Patienten können als Mitarbeitende gekennzeichnet werden. Je Rechtsträger wählbar: reduzierter Tarif oder voller Tarif mit Arbeitgeberbeitrag als separater Buchung; beides je Person, Rechtsträger und Zeitraum getrennt auswertbar."
+  },
+  {
+    "id": "G1",
+    "requirement": "Behandlungen, Umsatz, Patientinnen und Neuzugänge je Therapieperson, Standort, Rechtsträger, Versicherer und Periode",
+    "priority": "M",
+    "answer": "Ja. Standardauswertung mit freier Wahl nach Therapieperson, Standort, Rechtsträger, Versicherer und Zeitraum, auch kombiniert; Kennzahlen Behandlungen, Umsatz, Patienten, Neuzugänge. Export Excel/CSV."
+  },
+  {
+    "id": "G2",
+    "requirement": "Nettoumsatz je Therapieperson nach Zahlungseingang  im Kalendermonat — nicht nach Behandlungs- oder Rechnungsdatum — abzüglich Rabatte, Rückerstattungen, Stornierungen, Debitorenverluste und Rückforderungen",
+    "priority": "M",
+    "answer": "Ja. Nettoumsatz je Therapieperson nach dem Monat des Zahlungseingangs: Behandlung Januar, Rechnung Februar, Zahlung 14. März → zählt im März. Teilzahlungen zählen anteilig. Rabatte werden bereits im tatsächlich bezahlten Betrag berücksichtigt. Rückerstattungen, Stornos, Rückforderungen und Verluste mindern die Lohngrundlage nur, soweit sie zuvor berücksichtigte Zahlungseingänge korrigieren; der Abzug erfolgt einmalig in der Korrekturperiode. Nie bezahlte Rechnungen lösen weder Umsatz noch einen zusätzlichen Verlustabzug aus. Jede Korrektur verweist auf die ursprüngliche Zahlung; Doppelabzüge sind ausgeschlossen. Nachvollziehbar bis auf die einzelne Zahlung. Bei täglichem Zahlungsabgleich erfolgt die Monatszuordnung taggenau."
+  },
+  {
+    "id": "G3",
+    "requirement": "Monatsreport als Lohngrundlage, nachvollziehbar bis zur Einzelrechnung, exportierbar für Abacus Lohn",
+    "priority": "M",
+    "answer": "Ja. Monatsreport je Therapieperson und Rechtsträger auf Basis von G2, jede Zeile aufklappbar bis zur einzelnen Rechnung und Zahlung. Nach dem Monatsabschluss durch die Zentrale ist der Report unveränderlich; spätere Korrekturen erscheinen in der Folgeperiode als solche. Export für Abacus Lohn (Format mit Park Consulting abgestimmt), Excel/CSV/PDF."
+  },
+  {
+    "id": "G4",
+    "requirement": "Umsatz je Partnerpraxis als Grundlage der gestaffelten Beteiligung, im Jahr kumuliert mit Schwellenwerten",
+    "priority": "M",
+    "answer": "Ja. Umsatz je Partnerpraxis im Jahr kumuliert mit Schwellenwerten für die gestaffelte Beteiligung; die Staffel (Schwellen, Sätze) pflegt TCMswiss selbst. Anzeige der erreichten Stufe, des Abstands zur nächsten und einer Hochrechnung aufs Jahresende. Basis (brutto oder netto) wählbar."
+  },
+  {
+    "id": "G5",
+    "requirement": "Auszüge für Kassenverfahren : Behandlungs- und Rechnungslisten je Versicherer und Zeitraum mit Dauer, Ziffern und Parallelbehandlungen — ohne Namen exportierbar",
+    "priority": "M",
+    "answer": "Ja. Auf Knopfdruck Behandlungs- und Rechnungslisten je Versicherer, Therapieperson und Zeitraum mit Datum, Dauer, Ziffern, Einheiten, Betrag und Kennzeichen Parallelbehandlung ohne Namen (Patient nur als Nummer). Export Excel/CSV/PDF, ohne Nachbearbeitung."
+  },
+  {
+    "id": "G6",
+    "requirement": "Durchschnittliche Behandlungen pro Tag, Behandlungsdauer und Behandlungspreis je Person und Standort",
+    "priority": "M",
+    "answer": "Ja. Durchschnittliche Behandlungen pro Tag, Behandlungsdauer und Behandlungspreis je Therapieperson und Standort, mit Zeitvergleich."
+  },
+  {
+    "id": "G7",
+    "requirement": "Freie Auswertungen durch TCMswiss selbst, ohne Anbieteraufwand; Export nach Excel und CSV",
+    "priority": "M",
+    "answer": "Ja. Für uns eine zentrale Anforderung. Statt eines selbst gebauten Abfrage-Baukastens binden wir ein bewährtes Auswertungswerkzeug (Metabase, ohne Lizenzkosten) direkt ein, auf einer Kopie der Daten, damit der Praxisbetrieb nie gebremst wird. Berechtigte Personen der Zentrale erstellen eigene Tabellen, Filter und Diagramme per Klick, speichern sie als Berichte und exportieren nach Excel/CSV ohne uns und ohne Zusatzkosten. Das Datenmodell ist verständlich benannt und dokumentiert. Sichtbarkeit je Rechtsträger gilt auch hier. Schulung inklusive."
+  },
+  {
+    "id": "G8",
+    "requirement": "Auslastung: gebuchte gegen geplante Kapazität aus der Einsatzplanung",
+    "priority": "S",
+    "answer": "Ja. Auslastung als Verhältnis gebuchter Termine (Agenda) zur geplanten Kapazität aus der Einsatzplanung (S12), je Therapieperson, Standort und Zeitraum."
+  },
+  {
+    "id": "H1",
+    "requirement": "Offerte für  beide  Betriebsmodelle mit vollständigen Kosten: Betrieb durch den Anbieter und Betrieb auf eigener Infrastruktur",
+    "priority": "M",
+    "answer": "Ja. Beide Modelle sind in Kapitel 6 getrennt und vollständig bepreist.  Modell A:  Wir betreiben das System in Schweizer Rechenzentren (Exoscale, Zürich/Genf) inklusive Überwachung, Sicherung, Updates und Support.  Modell B:  Betrieb auf Ihrer Infrastruktur; wir liefern das Installationspaket mit Anleitung und Anforderungsliste (Linux-Server, Datenbank, Windows-Instanz für die Rechnungsstellung, Sicherungsziel) und richten es ein. Voraussetzung bei Modell B: ein Fernzugang (SSH/VPN) für Support und Updates, sonst können die Reaktionszeiten (H3) nicht eingehalten werden."
+  },
+  {
+    "id": "H2",
+    "requirement": "Datenhaltung Schweiz; Auftragsbearbeitungsvertrag nach revDSG mit Liste der Subprozessoren",
+    "priority": "M",
+    "answer": "Ja. Die von uns betriebene Praxissoftware verarbeitet und speichert sämtliche Daten, Dokumente und Sicherungen ausschliesslich auf Schweizer Infrastruktur (Exoscale, Zürich/Genf). Dies gilt auch für die von uns eingesetzte KI zur Belegverarbeitung. Davon ausgenommen ist die ausdrücklich von TCMswiss beauftragte Übermittlung an bestehende externe Dienste wie Mailchimp. Für die weitere Verarbeitung und Speicherung in diesen Diensten gelten die Bedingungen und Datenstandorte des jeweiligen Anbieters. Unsere Anbindungen übertragen nur die für den vereinbarten Zweck erforderlichen Daten. Der Auftragsbearbeitungsvertrag nach revDSG dokumentiert die von uns eingesetzten Subprozessoren sowie die Abgrenzung zu den von TCMswiss beauftragten externen Diensten. Er regelt Zweck, Weisungen, Geheimhaltung, Sicherheit, Meldepflicht, Auditrecht und Löschung; Gesundheitsdaten gelten als besonders schützenswert. Änderungen an der Liste unserer Subprozessoren werden vorgängig mitgeteilt. Der Auftragsbearbeitungsvertrag wird zusammen mit dem Hauptvertrag abgeschlossen."
+  },
+  {
+    "id": "H3",
+    "requirement": "Verfügbarkeitszusage, Wartungsfenster, Supportzeiten und Reaktionszeiten nach Prioritätsstufe",
+    "priority": "M",
+    "answer": "Ja. Verfügbarkeit 99,5 % pro Monat (ohne angekündigte Wartungsfenster, ohne Störungen bei Drittanbietern und Ihrem Internetanschluss). Wartungsfenster Sonntag 22–02 Uhr oder werktags ab 21 Uhr, 3 Arbeitstage vorher angekündigt, maximal zwei pro Monat, nie samstags. Support Montag–Freitag 08:00–17:30, ausserhalb Notfallnummer für Betriebsausfälle. Reaktionszeiten: P1 Betriebsausfall 1 Stunde (ausserhalb der Supportzeiten 4 Stunden), Behebung angestrebt innert 4 Stunden; P2 wesentliche Störung 4 Stunden, Behebung innert 2 Arbeitstagen; P3 Einzelstörung 1 Arbeitstag; P4 Anfragen 2 Arbeitstage. Das System wird rund um die Uhr automatisch überwacht mit sofortiger Alarmierung unseres Teams per SMS und Anruf. Bei Modell B gelten die Reaktionszeiten mit Fernzugang; die Infrastruktur verantwortet dort die Kundin."
+  },
+  {
+    "id": "H4",
+    "requirement": "Sicherung: Frequenz, RPO, RTO, Aufbewahrung, Speicherort, dokumentierter Wiederherstellungstest",
+    "priority": "M",
+    "answer": "Ja. Tägliche vollständige Sicherung der Datenbank plus laufende Sicherung über den Tag (Stand alle 15 Minuten). Die vollständigen Dokumentdateien sind in der Datenbank gespeichert und werden einschliesslich ihrer Versionen durch dieselbe Sicherung erfasst. Maximaler Datenverlust für Datenbank und Dokumente 15 Minuten, Wiederherstellung innert 4 Stunden (8 ausserhalb der Supportzeiten). Aufbewahrung: täglich 30 Tage, monatlich 12 Monate, jährlich für die gesetzliche Frist; alles verschlüsselt. Speicherort: zweite Schweizer Rechenzentrumszone, vom Produktivsystem getrennt (Schutz vor Ransomware). Offene Formate, sodass eine Wiederherstellung auch ohne uns möglich ist. Wiederherstellungstest vierteljährlich dokumentiert, jährlich auf Wunsch mit Ihnen. Bei Modell B stellt und verantwortet TCMswiss die erforderliche Server-, Hosting- und Sicherungsinfrastruktur. Unsere Leistungen umfassen die Installation, Softwarewartung und den Support über den bereitgestellten Fernzugang. Die infrastrukturseitigen Voraussetzungen für Sicherung und Wiederherstellung werden vor der Einrichtung gemeinsam abgestimmt."
+  },
+  {
+    "id": "H5",
+    "requirement": "Verhalten bei Internetausfall an einem Standort; Bandbreiten- und Latenzbedarf beziffert",
+    "priority": "M",
+    "answer": "Ja. Das System läuft zentral; ein Internetausfall betrifft nur den einen Standort, alle anderen arbeiten weiter, keine Daten sind gefährdet. Für den Standort: Empfehlung eines 4G/5G-Ersatzrouters, der automatisch umschaltet (ca. CHF 150–300 plus Datenabo, Beschaffung durch Sie), Handy-Hotspot zur Überbrückung, und jeden Abend automatisch die Agenda des Folgetags als PDF an die Standortleitung, damit bei Totalausfall bekannt bleibt, wer kommt. Bedarf: ca. 1–2 Mbit/s je gleichzeitig arbeitender Person, 5 Mbit/s je Standort mit 2–3 Plätzen, Latenz unter 100 ms, jede Schweizer Anbindung genügt. Ein offline-fähiger Arbeitsplatz ist nicht im Grundumfang."
+  },
+  {
+    "id": "H6",
+    "requirement": "Migration aus  MEDICOwin (InfoCall) : Stammdaten, Versicherungsangaben, Krankengeschichte mit Datum und Autor, Dokumente",
+    "priority": "M",
+    "answer": "Ja. Übernommen werden Patientenstammdaten, Versicherungsangaben, Krankengeschichte (Einträge mit Datum und Autor, soweit im Export enthalten), Dokumente mit Patientenzuordnung und offene Rechnungen am Stichtag. Vorgehen: Export analysieren, Feldzuordnung mit Ihnen freigeben, automatisiert migrieren, Testmigration mit Abnahme (H8), Produktivmigration am Stichtag. Was der Export nicht strukturiert liefert, geht ins lesbare Archiv (H9), nichts geht verloren. Voraussetzung: nach der Auftragserteilung ein anonymisierter Beispiel-Export aus MEDICOwin, spätestens Ende Oktober 2026 der vollständige Export; die Datengrundlage und der vom Kostendach abgedeckte Migrationsumfang werden auf dieser Basis gemäss H7 bestätigt."
+  },
+  {
+    "id": "H7",
+    "requirement": "Migration zu Fixpreis oder Kostendach; geregelt, was gilt, wenn das Exportformat abweicht",
+    "priority": "M",
+    "answer": "Ja. Die Migration wird nach effektivem Aufwand mit einem Kostendach von CHF 12'972 angeboten. Grundlage ist der in H6 beschriebene Übernahmeumfang. Nach Prüfung des MEDICOwin-Beispielexports bestätigen wir die zugrunde gelegten Datenarten, Strukturen und den damit abgedeckten Migrationsumfang schriftlich. Die Exportanalyse von maximal acht Stunden ist im Kostendach enthalten. Enthält der vollständige Export zusätzliche Datenarten oder abweichende Strukturen, zeigen wir die Auswirkungen innert fünf Arbeitstagen und vor der Umsetzung auf. Eine Erhöhung des Kostendachs erfolgt ausschliesslich nach vorgängiger schriftlicher Freigabe durch TCMswiss. Alternativ prüfen wir die Übernahme der betroffenen Inhalte in das lesbare Archiv gemäss H9 ohne Mehrkosten."
+  },
+  {
+    "id": "H8",
+    "requirement": "Testmigration mit Abnahme vor Produktivstart, mit Abstimmkontrollen und Stichproben",
+    "priority": "M",
+    "answer": "Ja. Zwei Durchläufe auf einer getrennten Testumgebung. Januar 2027: vollständige Testmigration mit automatischen Abstimmkontrollen (Anzahl Patienten, Rechnungen, offene Posten mit Summen je Rechtsträger, Einträge, Dokumente — jede Differenz erklärt), Stichproben durch Sie anhand unserer Liste, und fachlicher Prüfung (Testrechnungen im Standard 5.0, simulierter Monatsabschluss, Mahnlauf trocken). März 2027: Generalprobe mit erneuter Migration und Parallelbetrieb an Pilotstandorten, während MEDICOwin weiterläuft. Abnahmeprotokoll je Durchlauf, beidseitig unterzeichnet; Produktivstart 01.04.2027 nach erfolgreicher zweiter Abnahme."
+  },
+  {
+    "id": "H9",
+    "requirement": "Lesbares Archiv für nicht migrierbare Inhalte, mindestens für die Aufbewahrungsfrist",
+    "priority": "M",
+    "answer": "Ja. Alles, was nicht strukturiert übernommen werden kann, kommt in einen Archivbereich «Archiv MEDICOwin» im neuen System: als PDF oder Text mit Datum, Autor und Herkunft, dem Patientendossier zugeordnet, durchsuchbar, nur lesend. Der komplette Rohexport wird zusätzlich verschlüsselt aufbewahrt. Mindestens 20 Jahre, im gleichen Sicherungskonzept, exportfähig. MEDICOwin muss nicht als Leseinstanz weiterlaufen."
+  },
+  {
+    "id": "H10",
+    "requirement": "Schulungskonzept mit Stundenzahl, Vor-Ort-Einsätzen und Rollenaufteilung; deutsches Handbuch",
+    "priority": "M",
+    "answer": "Ja. Schulung nach Rollen: Zentrale (4 Personen) 2 Tage à 6 Stunden vor Ort in Opfikon plus 4 Stunden Vertiefung nach dem ersten Rechnungslauf; Assistenzen (18) in 4 Gruppen à 3 Stunden vor Ort an regionalen Sammelstandorten; Therapiepersonen (16) in 4 Gruppen à 2 Stunden online oder kombiniert. Total ca. 36 Schulungsstunden auf einer Übungsumgebung mit anonymisierten Daten. Begleitung am Produktivstart: 2 Personen während 2 Tagen à 8 Stunden vor Ort (32 Personenstunden). Die 36 Schulungsstunden und diese Startbegleitung sind vollständig im Kostendach von CHF 10'810 enthalten; Abrechnung nach effektivem Umfang bis zu diesem Kostendach. Video-Kurzanleitungen für Neueintritte. Handbuch deutsch als Online-Hilfe im System (immer aktuell) mit Rollenkapiteln, auf Wunsch als PDF. Termine und Gruppen legen wir gemeinsam fest. Reise- und Einsatzpauschalen in Kapitel 6."
+  }
+]

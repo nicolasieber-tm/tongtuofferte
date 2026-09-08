@@ -1,0 +1,6 @@
+import {createServer} from 'node:http';
+import {readFile,stat} from 'node:fs/promises';
+import {resolve,extname,sep} from 'node:path';
+const root=resolve('dist/client');
+const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.pdf':'application/pdf','.rsc':'text/x-component','.woff2':'font/woff2'};
+createServer(async(req,res)=>{try{const pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);let file=resolve(root,'.'+pathname);if(file!==root&&!file.startsWith(root+sep)){res.writeHead(403).end();return}if(pathname.endsWith('/'))file=resolve(file,'index.html');const info=await stat(file);if(!info.isFile())throw new Error('not file');res.writeHead(200,{'Content-Type':mime[extname(file)]||'application/octet-stream','X-Content-Type-Options':'nosniff','X-Robots-Tag':'noindex, nofollow','Cache-Control':pathname.includes('/_next/static/')?'public, max-age=31536000, immutable':'no-cache'});if(req.method==='HEAD'){res.end();return}res.end(await readFile(file));}catch{res.writeHead(404,{'Content-Type':'text/plain; charset=utf-8'}).end('Seite nicht gefunden.')}}).listen(Number(process.env.PORT)||3000,'0.0.0.0',()=>console.log(`TongTu proposal listening on port ${process.env.PORT||3000}`));
