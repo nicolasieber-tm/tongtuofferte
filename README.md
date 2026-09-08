@@ -17,7 +17,7 @@ Repository: https://github.com/nicolasieber-tm/tongtuofferte. In Railway das Rep
 - `app/page.tsx`: Texte, Preise, Module und Zeitplan.
 - `app/requirements.json`: 107 Katalogpositionen aus dem Word-Dokument, einschliesslich technischer Bedingungen. S16/C5 sind technisch zu bestätigen, K-Prioritäten optional. Weitere explizite Voraussetzungen werden separat gekennzeichnet. Eine Position ist kein Nachweis fertiger Implementierung.
 - `app/globals.css`: Gestaltung, responsives Layout, Scroll- und Kartenanimationen mit reduzierter Bewegung.
-- `public/documents`: PDF-Fassungen von Offerte und Katalog. Vor Veröffentlichung aktualisieren; die aktuelle Offerte enthält noch Platzhalter für Testrechnung/Modulversion/Datum/Validierung. Testrechnung wird separat versendet.
+- `public/documents`: PDF-Fassungen von Offerte und Katalog. Die Offerte enthält Modulversion 5.00.010, Erstellungsdatum 07.09.2026 und die bestandene XML-Schemaprüfung vom 08.09.2026. Die Musterrechnung und der Rückforderungsbeleg sind separat verlinkt; die Prüfung ist keine fachliche Tarif- oder Stornoprüfung.
 - `public/assets`: Original-Logos von tcmswiss.ch und trendingmedia.ch. Orange #eb5e0b aus der TongTu-Website. Schriftarten DM Sans und Manrope werden über Google Fonts geladen.
 
 Die Oberfläche ist eine abstrakte Konzeptillustration, keine verbindliche Dashboardgestaltung. Die Landingpage fasst zusammen; vollständige Bedingungen stehen in den PDFs. Modell B setzt kundenseitige Infrastruktur voraus.

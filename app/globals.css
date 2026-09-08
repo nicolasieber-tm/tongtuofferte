@@ -151,3 +151,5 @@ fieldset.model-switch{border:0;min-width:0}
 .hero-stage .platform-window{transform:translateX(-50%) translateY(calc(var(--hero-p)*55px)) scale(calc(1 + var(--hero-p)*.08))}
 .hero-stage .backplate.one{transform:translateX(-50%) translateY(calc(var(--hero-p)*-80px)) rotateX(calc(var(--hero-p)*12deg)) rotateZ(calc(var(--hero-p)*-9deg))}
 .hero-stage .backplate.two{transform:translateX(-50%) translateY(calc(var(--hero-p)*-110px)) rotateX(calc(var(--hero-p)*10deg)) rotateZ(calc(var(--hero-p)*8deg))}
+
+.sample-documents{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:12px 25px;margin:28px auto 0;font-size:11px}.sample-documents>span{flex-basis:100%;font-size:9px;color:#929398}.sample-documents a{display:flex;align-items:center;gap:7px;color:#666970;text-decoration:underline;text-underline-offset:5px}.sample-documents a:hover{color:var(--orange)}
